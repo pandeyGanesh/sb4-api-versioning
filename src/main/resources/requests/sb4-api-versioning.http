@@ -1,0 +1,6 @@
+### File Endpoints
+
+@host = http://localhost:8100
+
+### Get all users (V1 DTO format)
+GET {{host}}/users

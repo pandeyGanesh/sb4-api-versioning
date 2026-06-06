@@ -1,3 +1,6 @@
 spring:
   application:
     name: sb4-api-versioning
+
+server:
+  port: 8100
