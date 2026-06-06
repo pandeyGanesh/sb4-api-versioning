@@ -1,6 +1,61 @@
-### File Endpoints
+### --- VERSION 1.0 ENDPOINTS ---
 
-@host = http://localhost:8100
+### Get all users V1 (Default Version)
+GET http://localhost:8100/users
+Accept: application/json
 
-### Get all users (V1 DTO format)
-GET {{host}}/users
+### Get all users V1 via Query Parameter
+GET http://localhost:8100/users?version=1.0
+Accept: application/json
+
+### Get all users V1 via Request Header
+GET http://localhost:8100/users
+X-API-Version: 1.0
+Accept: application/json
+
+### Get all users V1 via Media Type Parameter
+GET http://localhost:8100/users
+Accept: application/json;version=1.0
+
+### Get all users V1 via Path Segment
+GET http://localhost:8100/api/1.0/users
+Accept: application/json
+
+
+### --- VERSION 2.0 ENDPOINTS ---
+
+### Get all users V2 via Query Parameter
+GET http://localhost:8100/users?version=2.0
+Accept: application/json
+
+### Get all users V2 via Request Header
+GET http://localhost:8100/users
+X-API-Version: 2.0
+Accept: application/json
+
+### Get all users V2 via Media Type Parameter
+GET http://localhost:8100/users
+Accept: application/json;version=2.0
+
+### Get all users V2 via Path Segment
+GET http://localhost:8100/api/2.0/users
+Accept: application/json
+
+
+### --- CURL COMMANDS FOR VERIFICATION ---
+
+# 1. Query Parameter Versioning
+# V1: curl -X GET "http://localhost:8100/users?version=1.0"
+# V2: curl -X GET "http://localhost:8100/users?version=2.0"
+
+# 2. Header Versioning
+# V1: curl -X GET http://localhost:8100/users -H "X-API-Version: 1.0"
+# V2: curl -X GET http://localhost:8100/users -H "X-API-Version: 2.0"
+
+# 3. Media Type Parameter Versioning
+# V1: curl -X GET http://localhost:8100/users -H "Accept: application/json;version=1.0"
+# V2: curl -X GET http://localhost:8100/users -H "Accept: application/json;version=2.0"
+
+# 4. Path Segment Versioning
+# V1: curl -X GET http://localhost:8100/api/1.0/users
+# V2: curl -X GET http://localhost:8100/api/2.0/users

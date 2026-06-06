@@ -15,10 +15,17 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping
+    @GetMapping(version = "1.0")
     public List<UserV1> getUsers() {
         return userRepository.getAll().stream()
                 .map(User::toV1)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping(version = "2.0")
+    public List<UserV2> getUsersV2() {
+        return userRepository.getAll().stream()
+                .map(User::toV2)
                 .collect(Collectors.toList());
     }
 }

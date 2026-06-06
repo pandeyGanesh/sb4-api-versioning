@@ -1,6 +1,18 @@
 spring:
   application:
     name: sb4-api-versioning
+  # Basic versioning configuration
+  mvc:
+    apiversion:
+      supported: 1.0,2.0
+      default: 1.0
+      # Choose ONE versioning strategy:
+      use:
+        #path-segment: 1  # Path segment versioning (e.g., /api/v1/users)
+        header: X-API-Version  # Request header versioning (e.g., X-API-Version: 1.0)
+        #query-parameter: version  # Query parameter versioning (e.g., ?version=1.0)
+        #media-type-parameter: 
+        #  "[application/json]": version  # Media type parameter versioning (e.g., Accept: application/json;version=1.0)
 
 server:
   port: 8100
